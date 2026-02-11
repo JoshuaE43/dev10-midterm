@@ -35,6 +35,7 @@ Phase 1: Setup (2 Hours)
  2. Setup venv + .gitignore (10 mins)
  3. Add IDB dataset + Inspect (10 mins)
 
+
 Phase 2: Dataset Analysis (30 mins)
  1. Load files into dataframe (10 mins)
  2. Identify important columns + entities (20 mins)
@@ -49,6 +50,7 @@ Phase 4: ETL Preparation (3 hours)
  3. Execute schema and load data (INSERT) (1 hour)
 
 
+HERE
 ---Concept: Visualizing the relationship between median age and fertility rate to determine whether older countries tend to have lower fertility---
 Phase 5: Visualizations (3 hours)
  1. Create simple sketch of concept and show to 2 classmates (1 hour)
