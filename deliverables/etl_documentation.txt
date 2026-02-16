@@ -1,0 +1,66 @@
+Introduction
+Set the stage. Introduce the problem you are trying to solve. Identify sources of data. Describe why the data needs to be transformed.
+
+The goal of this project is to visualize the relationships between population age structure, median age, fertility rates (TFR), and births to determine 
+whether countries with older populations tend to have lower fertility rates and fewer births.
+Since the raw datasets provided are large text files with many columns and values, 
+the data must be transformed to have relevant data such as age groups, percentages, 
+and country-level statistics before comparisons can be made.
+
+
+Data Sources
+Where did you find your data?
+When did you access it?
+Cite your sources, using the APA format.
+
+The primary datasets come from the U.S. Census Bureau International Database (IDB). 
+This project also uses a country reference file created by arturictus that maps ISO country codes 
+to country names and regions. All files were first accessed on Monday, February 9th.
+Sources (APA)
+U.S. Census Bureau. (2025). International Database (IDB). https://www.census.gov/programs-surveys/international-programs/about/idb.html
+Arturictus. (n.d.). ISO 3166 countries with regional codes. GitHub. https://github.com/lukes/ISO-3166-Countries-with-Regional-Codes
+
+
+Extraction
+Where did you get the data from?
+How did you get the data?
+What format is the extracted data?
+What steps were taken to extract the data? Be sure to number steps when the order matters.
+
+The data is from the U.S. Census Bureau International Database (IDB) and also the GitHub ISO country mapping file (all.csv)
+The IDB datasets were downloaded from the Census website and the ISO mapping file was downloaded from GitHub.
+The IDB files are pipe-delimited .txt files and the Country mapping file is .csv.
+Steps Taken:
+1. Used pandas.read_csv() to load idb5yr.txt and idbsingleyear.txt.
+2. Loaded all.csv to map ISO alpha-2 codes to country names and regions.
+3. Created three DataFrames: Main demographic data, Single-year age data, Population age-range data
+
+
+Transformation
+Did you use all of the data you extracted as-is?
+Did you remove columns? Did you change columns’ names?
+Did you change column formats?
+What steps were taken to get the data in a form that you could use it? Be sure to number steps when the order matters.
+
+The extracted datasets were not used as-is. Several transformations were done to make the data usable. These include removing columns, changing column names
+and also performing calculations to create new columns. 
+Steps Taken:
+1. Filtered each DataFrame to include only required columns.
+2. Aggregated population totals by country and year.
+3. Calculated average Total Fertility Rate (TFR) per country and year using groupby() and mean().
+4. Combined individual age columns into five broader age groups.
+5. Merged total population, fertility rate, and age-group datasets using #YR and GEO_ID.
+6. Converted each age group's raw population counts into percentages of total population.
+7. Created a function that identifies the alpha-2 from GEO_ID by using a custom regex. 
+8. Extracted ISO alpha-2 country codes from the GEO_ID field by using the function on the merged dataframe.
+9. Joined country names and regions using all.csv via the extracted alpha-2 codes.
+10. Removed intermediate columns and dropped rows containing missing values.
+
+Load
+If you were to load your transformed data into a relational database, what steps would you take to make that happen? Be sure to number steps when the order matters.
+Steps To Be Taken:
+1. Design a database schema. 
+2. Execute the schema (DDL) in MySQL.
+3. Export the final Pandas DataFrame to a CSV file using to_csv().
+4. Use MySQL’s LOAD DATA to load the CSV into the corresponding table.
+5. Verify the load by running SELECT queries.
