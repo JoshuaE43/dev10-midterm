@@ -50,7 +50,6 @@ Phase 4: ETL Preparation (3 hours)
  3. Execute schema and load data (INSERT) (1 hour)
 
 
-HERE
 ---Concept: Visualizing the relationship between median age and fertility rate to determine whether older countries tend to have lower fertility---
 Phase 5: Visualizations (3 hours)
  1. Create simple sketch of concept and show to 2 classmates (1 hour)
